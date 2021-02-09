@@ -1,1 +1,1 @@
-# Sinatra-App
+# sinatra-video-games-collection
