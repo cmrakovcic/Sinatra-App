@@ -1,1 +1,1 @@
-# sinatra-video-games-collection
+# sinatra-video-game-collection
