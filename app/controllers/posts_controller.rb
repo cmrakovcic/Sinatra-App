@@ -20,6 +20,7 @@ class PostsController < ApplicationController
                 "An edit post form #{current_user.id} is editing #{post.id}" 
             else
                 redirect "/posts"
+            end
         end
     end
 end
