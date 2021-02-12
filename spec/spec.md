@@ -10,7 +10,7 @@
 
 [x] Include user accounts with unique login attribute (username or email)
 
-[] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+[x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 
 [x] Ensure that users can't modify content created by other users
 
