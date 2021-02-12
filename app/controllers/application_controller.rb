@@ -15,6 +15,14 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     
+    def name
+      @name = post.name
+    end
+
+    def year_completed
+      @year_completed = post.year_completed
+    end
+    
     def logged_in?
       !!current_user
     end
