@@ -1,0 +1,10 @@
+<h1>All Video Games</h1>
+<ol>
+  <% @videogames.each do |videogame| %>
+    <li>
+      <strong>
+      <a href="/videogames/<%= videogame.id %>"><%= videogame.title %></a> 
+      </strong> | <%= videogame.date_purchased %>
+    </li>
+  <% end %>
+</ol>

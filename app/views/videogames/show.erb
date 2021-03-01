@@ -1,0 +1,11 @@
+<h1><%= @videogame.title %></h1>
+<p>
+  Date Purchased: <%= @videogame.date_purchased %>
+</p>
+<a href="/videogames/<%= @videogame.id %>/edit">Edit</a>
+
+<form method="POST" action="/videogames/<%= @videogame.id %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <br>
+  <input type="submit" value="Delete"> 
+</form>

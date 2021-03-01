@@ -5,6 +5,8 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    #method_override will tell our application to look for the _method key in params
+    set :method_override, true
     enable :sessions
     set :session_secret, "video_game_collection"
   end
@@ -14,29 +16,16 @@ class ApplicationController < Sinatra::Base
   end
 
   helpers do
-    
-    def name
-      @name = post.name
-    end
 
-    def year_completed
-      @year_completed = post.year_completed
-    end
-    
     def logged_in?
       !!current_user
     end
 
-    def current_user
-      @current_user ||= User.find_by(:email => session[:email]) if session[:email]
-    end
-
     def login(email, password)
-      # check if user w this email exists, if so set the session. otherwise:
-        #return false or redirect "/login"
-      # Is the user who they claim to be
-       #if statement assignment, truthy. End w a local variable called user.
-       #will return as nil, if no user is found
+      # Check if user actually exists
+      # If so, set the session using *** IF STATEMENT ASSIGNMENTS ***
+      # 28-33. if it returns "truthy" you should end up with a local variable called "user"
+      # 28-33. if no user is found, it will return Nil and redirect to "/login"
       user = User.find_by(:email => email)
       if user && user.authenticate(password)
         session[:email] = user.email
@@ -44,10 +33,13 @@ class ApplicationController < Sinatra::Base
         redirect "/login"
       end
     end
-    
-    def logout!
-    session.clear
-    # Emailing them to let them know they logged out
+
+    def current_user
+      @current_user ||= User.find_by(:email => session[:email]) if session[:email]
+      end
     end
-  end
+
+    def logout!
+      session.clear
+    end 
 end
