@@ -1,10 +1,28 @@
-<h1>All Video Games</h1>
-<ol>
-  <% @videogames.each do |videogame| %>
-    <li>
-      <strong>
-      <a href="/videogames/<%= videogame.id %>"><%= videogame.title %></a> 
-      </strong> | <%= videogame.date_purchased %>
-    </li>
-  <% end %>
-</ol>
+<html>
+  <head>
+    <style>
+      * {
+          text-align: center;
+      }
+      h1 {
+        color: #DC143C;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All Video Games</h1>
+    <ol>
+      <% @videogames.each do |videogame| %>
+        <li>
+          <strong>
+          <a href="/videogames/<%= videogame.id %>"><%= videogame.title %></a> 
+          </strong> | <%= videogame.date_purchased %>
+        </li>
+      <% end %>
+    </ol>
+  </body>
+<html>
+
+<a href="/">Home |</a>
+<a href="/videogames/new">New Video Game |</a>
+<a href="/logout">Logout</a>

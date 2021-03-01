@@ -1,10 +1,24 @@
-<h1>Editing <%= @videogame.title %></h1>
+<html>
+    <head>
+        <style>
+            * {
+                    text-align: center;
+            }
+            h1 {
+                    color: #DC143C;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Editing <%= @videogame.title %></h1>
 
-<form method="POST" action="/videogames/<%= @videogame.id %>">
-    <input type="hidden" name="_method" value="PUT">
-    <label for="title_field">Title:</label>
-    <input type="text" name="videogame[title]" value="<%= @videogame.title %>">
-    <label for="date_purchased_field">Date Purchased:</label>
-    <input type="text" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>">   
-    <input type="submit" value="Submit!">
-</form>
+        <form method="POST" action="/videogames/<%= @videogame.id %>">
+            <input type="hidden" name="_method" value="PUT">
+            <label for="title_field">Title:</label>
+            <input type="text" name="videogame[title]" value="<%= @videogame.title %>">
+            <label for="date_purchased_field">Date Purchased:</label>
+         <input type="text" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>">   
+            <input type="submit" value="Submit!">
+        </form>
+    </body>
+</html>
