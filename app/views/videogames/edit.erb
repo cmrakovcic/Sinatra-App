@@ -7,6 +7,29 @@
             h1 {
                  color: #DC143C;
             }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #DC143C;
+            }
+            li {
+                float: center;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: #2F4F4F;
+            }
+            .active {
+                background-color: #4CAF50;
+            }
         </style>
     </head>
     <body>
@@ -22,3 +45,7 @@
         </form>
     </body>
 </html>
+<br>
+<ul>
+  <li><a href="/videogames/<%= @videogame.id %>">Go Back</a></li>
+</ul>
