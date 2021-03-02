@@ -1,8 +1,12 @@
 class VideogamesController < ApplicationController
 
   get "/videogames" do
-    @videogames = Videogame.all
+    if !logged_in?
+      redirect "/login"
+    else
+      @videogames = Videogame.all
     erb :"videogames/index"
+    end
   end
 
   get '/videogames/new' do
@@ -10,8 +14,8 @@ class VideogamesController < ApplicationController
   end
 
   post '/videogames' do
-    @videogame = Videogame.create(params)
-    redirect "/videogames/#{@videogame.id}"
+      @videogame = Videogame.create(params)
+      redirect "/videogames/#{@videogame.id}"
   end
 
   get '/videogames/:id' do
@@ -35,5 +39,9 @@ class VideogamesController < ApplicationController
     videogame = Videogame.find(params[:id])
     videogame.destroy
     redirect "/videogames"
-  end   
+  end  
+
+  get "/videogames/" do
+    redirect "/videogames"
+  end
 end
