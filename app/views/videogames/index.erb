@@ -2,24 +2,24 @@
   <head>
     <style>
       * {
-          text-align: center;
+           text-align: center;
       }
       h1 {
-        color: #DC143C;
+           color: #DC143C;
       }
     </style>
   </head>
   <body>
     <h1>All Video Games</h1>
-    <ol>
+    <p>
       <% @videogames.each do |videogame| %>
-        <li>
+        <ol>
           <strong>
           <a href="/videogames/<%= videogame.id %>"><%= videogame.title %></a> 
           </strong> | <%= videogame.date_purchased %>
-        </li>
+        </ol>
       <% end %>
-    </ol>
+    </p>
   </body>
 <html>
 
