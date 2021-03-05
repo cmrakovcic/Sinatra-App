@@ -1,51 +1,38 @@
-<html>
-    <head>
-        <style>
-            * {
-                 text-align: center;
-            }
-            h1 {
-                 color: #DC143C;
-            }
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #DC143C;
-            }
-            li {
-                float: center;
-            }
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-            li a:hover {
-                background-color: #2F4F4F;
-            }
-            .active {
-                background-color: #4CAF50;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Editing <%= @videogame.title %></h1>
+<!-- Form to update specific problem -->
+<!-- POSTs to a controller action patch '/problems/:id' -->
 
-        <form method="POST" action="/videogames/<%= @videogame.id %>">
-            <input type="hidden" name="_method" value="PUT">
-            <label for="title_field">Title:</label>
-            <input type="text" name="videogame[title]" value="<%= @videogame.title %>">
-            <label for="date_purchased_field">Date Purchased:</label>
-         <input type="text" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>">   
-            <input type="submit" value="Submit!">
-        </form>
-    </body>
-</html>
-<br>
-<ul>
-  <li><a href="/videogames/<%= @videogame.id %>">Go Back</a></li>
-</ul>
+<h1> Edit a Video Game</h1>
+
+<!-- Print error message -->
+<% if !!@error %>
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error!</strong> <%= @error %>
+  </div>
+<% end %>
+
+<form action="/videogames/<%= @videogame.id %>" method="POST">
+  <!--post gets translated to a patch request-->
+  <!-- modifies an existing problem based on ID in the url -->
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <h3>Original Video Game — Video Game id: <%=@videogame.id%></h3>
+  <h4>Title: <%= @videogame.title %></h3>
+  <ul>
+    <li>Date Purchased: <%= @videogame.date_purchased %></li>
+  </ul>
+
+
+  <h3> Edit Video Game</h3><br>
+
+  <!-- Title -->
+  <label>Title: </label>
+  <input type="text" name="videogame[title]" value="<%= @videogame.title %>"><br><br>
+
+  <!-- Date -->
+  <label>Date Purchased: </label>
+  <input type="date" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>"><br><br>
+
+  <!-- Submit button -->
+  <button class="btn btn-lg btn-info" type="submit">Edit Video Game</button><br>
+</form

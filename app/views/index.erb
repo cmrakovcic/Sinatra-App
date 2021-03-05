@@ -1,0 +1,22 @@
+
+<div class="container">
+  <h1>Video Game Collection</h1>
+    <img src="https://images-na.ssl-images-amazon.com/images/I/71Wkb1JCWdL._AC_SL1500_.jpg" alt="Video Game Collection" width="600" height="500">
+</div>
+<div class="content">
+  <p>Welcome to the Video Game Collection App! The focus of this application is to keep track of your video game collection.  Signup to create an account, and then Login to get started.</p>
+</div>
+
+<% if !logged_in? %>
+  <div class="btn-group" style="padding-right: 5px; text-align: center">
+    <form action="/login" method="get">
+      <button class="btn btn-lg btn-primary" type="submit">Log in</button>
+    </form>
+  </div>
+  <br>
+  <div class="btn-group" style="text-align: center">
+    <form action="/signup" method="get">
+      <button class="btn btn-lg btn-primary" type="submit">Sign Up</button>
+    </form>
+  </div>
+<% end %>

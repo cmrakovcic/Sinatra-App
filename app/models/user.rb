@@ -4,6 +4,5 @@ class User < ActiveRecord::Base
     # validates :password, length: {minimum: 6}
     validates :password, presence: true
     validates :email, presence: true, uniqueness: true
-
     has_many :videogames
 end

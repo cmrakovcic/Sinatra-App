@@ -1,49 +1,28 @@
-<html>
-  <head>
-    <style>
-      * {
-           text-align: center;
-      }
-      h1 {
-           color: #DC143C;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #DC143C;
-      }
-      li {
-        float: center;
-      }
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-      li a:hover {
-        background-color: #2F4F4F;
-      }
-      .active {
-        background-color: #4CAF50;
-      }
-    </style>
-  </head>
-  <body>
-    <h1><%= @videogame.title %></h1>
-      <p>
-        Date Purchased: <%= @videogame.date_purchased %>
-      </p>
-      <ul>
-      <li><a href="/videogames">Video Games</a></li>
-      <li><a href="/videogames/<%= @videogame.id %>/edit">Edit</a></li>
-      <li><p><form method="POST" action="/videogames/<%= @videogame.id %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete This Video Game">
-      </form></p></li>
-    </ul>
-  </body>
-</html>
+<!-- Display one videogame -->
+<h1>Videogame Title: <%=@videogame.title%></h1>
+<h3>Date Purchased: <%= @videogame.date_purchased %></h3>
+<h3>Created By: <a href="/users/<%= @videogame.user_id %>"><%= @videogame.user.email %></a></h3>
+<br>
+<% if @videogame.user == current_user %>
+  <div class="btn-group">
+    <!-- Add edit problem button -->
+    <form action="/videogames/<%= @videogame.id %>/edit" method="GET">
+    <button class="btn btn-primary btn-lg" type="submit">Edit Videogame</button>
+    </form>
+  </div>
+  <br>
+  <div class="btn-group">
+    <!-- Delete problem -->
+    <form action="/videogames/<%= @videogame.id %>/delete" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger btn-lg" type="submit">Delete Video Game</button>
+    </form>
+  </div>
+  <br>
+  <div class="btn-group">
+    <!-- Add problem -->
+    <form action="/videogames/new" method="GET">
+      <button class="btn btn-success btn-lg" type="submit">Add new videogame </button>
+    </form>
+  </div>
+<% end %>

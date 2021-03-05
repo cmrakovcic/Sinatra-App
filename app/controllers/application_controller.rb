@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :index
   end
 
   helpers do
@@ -20,19 +20,20 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-    def login(email, password)
-      user = User.find_by(:email => email)
-      if user && user.authenticate(password)
-        session[:email] = user.email
-      else
-        redirect "/login"
+    def current_user
+      User.find_by(id: session[:user_id])
       end
     end
 
-    def current_user
-      @current_user ||= User.find_by(:email => session[:email]) if session[:email]
-      end
-    end
+    # def login(email, password)
+    #   user = User.find_by(:email params[:email])
+    #   if user && user.authenticate(params[:password])
+    #     session[:user_id] = user.id
+    #     redirect "/users/#{user.id}"
+    #   else
+    #     redirect "/login"
+    #   end
+    # end
 
     def logout!
       session.clear

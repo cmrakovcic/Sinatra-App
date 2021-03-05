@@ -1,49 +1,19 @@
-<html>
-    <head>
-        <style>
-            * {
-                 text-align: center;
-            }
-            h1 {
-                 color: #DC143C;
-            }
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: #DC143C;
-            }
-            li {
-                float: center;
-            }
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-            li a:hover {
-                background-color: #2F4F4F;
-            }
-            .active {
-                background-color: #4CAF50;
-            }
-        </style>
-    </head>
-    </body>
-        <h1>Create a New Video Game</h1>
+<h2>Create a New Video Game</h2><br>
+<!-- Print error message -->
+<% if @error %>
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error!</strong> Data invalid. Please enter a valid entry.
+  </div>
+<% end %>
 
-        <form method="POST" action="/videogames">
-            <label for="title_field">Title:</label>
-            <input type="text" name="title">
-            <label for="date_purchased_field">Date Purchased:</label>
-            <input type="text" name="date_purchased">   
-            <input type="submit" value="Submit!">
-        </form>
-        <br>
-    </body>
-</html>
-<ul>
-    <li><a href="/videogames">Go Back</a></li>
+<!-- Display form -->
+<form action="/videogames" method="POST">
+  <!-- Title -->
+  <label>Title: </label>
+  <input type="text" name="videogame[title]"required><br><br>
+  <!-- Date Purchased -->
+  <label>Date Purchased: </label>
+  <input type="date" name="videogame[date_purchased]"required><br><br>
+  <button class="btn btn-lg btn-success" type="submit">Add Video Game</button><br>
+</form>
