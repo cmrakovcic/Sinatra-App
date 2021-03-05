@@ -1,8 +1,8 @@
 [x] Use Sinatra to build the app
-    - Included in Gemfile and app is centered around routes
+    - Included in Gemfile and app implements routes.
 
 [x] Use ActiveRecord for storing information in a database
-    - Included in Gemfile, used migrations to create tables and associations are established in models classes
+    - Included in Gemfile, uses migrations to create tables and associations are established in the models class.
 
 [x] Include more than one model class (e.g. User, Post, Category)
     - I have included a User and Videogame model class.
