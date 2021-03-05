@@ -1,18 +1,15 @@
-<!-- Display one videogame -->
 <h1>Videogame Title: <%=@videogame.title%></h1>
 <h3>Date Purchased: <%= @videogame.date_purchased %></h3>
 <h3>Created By: <a href="/users/<%= @videogame.user_id %>"><%= @videogame.user.email %></a></h3>
 <br>
 <% if @videogame.user == current_user %>
   <div class="btn-group">
-    <!-- Add edit problem button -->
     <form action="/videogames/<%= @videogame.id %>/edit" method="GET">
     <button class="btn btn-primary btn-lg" type="submit">Edit Videogame</button>
     </form>
   </div>
   <br>
   <div class="btn-group">
-    <!-- Delete problem -->
     <form action="/videogames/<%= @videogame.id %>/delete" method="POST">
       <input id="hidden" type="hidden" name="_method" value="DELETE">
       <button class="btn btn-danger btn-lg" type="submit">Delete Video Game</button>
@@ -20,7 +17,6 @@
   </div>
   <br>
   <div class="btn-group">
-    <!-- Add problem -->
     <form action="/videogames/new" method="GET">
       <button class="btn btn-success btn-lg" type="submit">Add new videogame </button>
     </form>

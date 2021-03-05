@@ -1,9 +1,4 @@
-<!-- Form to update specific problem -->
-<!-- POSTs to a controller action patch '/problems/:id' -->
-
 <h1> Edit a Video Game</h1>
-
-<!-- Print error message -->
 <% if !!@error %>
   <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -12,27 +7,19 @@
 <% end %>
 
 <form action="/videogames/<%= @videogame.id %>" method="POST">
-  <!--post gets translated to a patch request-->
-  <!-- modifies an existing problem based on ID in the url -->
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <h3>Original Video Game — Video Game id: <%=@videogame.id%></h3>
-  <h4>Title: <%= @videogame.title %></h3>
-  <ul>
-    <li>Date Purchased: <%= @videogame.date_purchased %></li>
-  </ul>
+  <h2>Original Video Game — Video Game id: <%=@videogame.id%></h2>
+  <h2>Title: <%= @videogame.title %></h2>
+  <h3>Date Purchased: <%= @videogame.date_purchased %></h3>
 
+  <h3> Edit Video Game:</h3><br>
 
-  <h3> Edit Video Game</h3><br>
-
-  <!-- Title -->
   <label>Title: </label>
   <input type="text" name="videogame[title]" value="<%= @videogame.title %>"><br><br>
 
-  <!-- Date -->
   <label>Date Purchased: </label>
   <input type="date" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>"><br><br>
 
-  <!-- Submit button -->
   <button class="btn btn-lg btn-info" type="submit">Edit Video Game</button><br>
 </form

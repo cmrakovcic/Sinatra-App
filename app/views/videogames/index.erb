@@ -1,13 +1,7 @@
-<!-- interpolate Ruby code using ERB tags -->
-<!-- evaluate Ruby code and compile into HTML code before it gets sent to browser -->
 <h1>Welcome, <%= @user.email %>!</h1>
-
-<!-- Link to create session -->
 <form action="/videogames/new" method="GET">
   <button class="btn btn-outline-primary btn-lg" type="submit">Add new video game</button>
 </form>
-
-<!-- Display all sessions -->
 <h3>All Video Games</h3>
 <% if @videogames.empty? %>
   <p>There are no existing video games</p>

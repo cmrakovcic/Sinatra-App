@@ -1,13 +1,11 @@
 <h1> <%= @user.email %>'s Video Game Collection</h1>
 
-<!-- Allow user to add problem if they are on their own profile -->
 <% if current_user == @user %>
   <form action="/videogames/new" method="GET">
     <button class="btn btn-outline-primary btn-lg" type="submit">Add New Video Game</button>
   </form>
 <% end %>
 
-<!-- Display all videogames -->
 <h3>All Video Games:</h3>
 <% if @videogames.empty? %>
   <p>Looks like <%= @user.email %> doesn't have any vidoe games!</p>
@@ -46,7 +44,6 @@
               </td>
             </form>
           <% else %>
-            <!-- blank columns -->
             <td class="d-none"></td>
             <td class="d-none"></td>
           <% end %>

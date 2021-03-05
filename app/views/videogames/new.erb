@@ -1,5 +1,4 @@
 <h2>Create a New Video Game</h2><br>
-<!-- Print error message -->
 <% if @error %>
   <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -7,12 +6,9 @@
   </div>
 <% end %>
 
-<!-- Display form -->
 <form action="/videogames" method="POST">
-  <!-- Title -->
   <label>Title: </label>
   <input type="text" name="videogame[title]"required><br><br>
-  <!-- Date Purchased -->
   <label>Date Purchased: </label>
   <input type="date" name="videogame[date_purchased]"required><br><br>
   <button class="btn btn-lg btn-success" type="submit">Add Video Game</button><br>
