@@ -34,10 +34,14 @@
 Confirm
 
 [x] You have a large number of small Git commits
+    - Yes, it can be seen on my github.
 
 [x] Your commit messages are meaningful
+    - Yes, I made them meaningful and relative to the work done.
 
 [x] You made the changes in a commit that relate to the commit message
+    - Yes, the commit messages reflect the changes made.
 
 [x] You don't include changes in a commit that aren't related to the commit message
+    - Yes, it can be seen on my github.
  
