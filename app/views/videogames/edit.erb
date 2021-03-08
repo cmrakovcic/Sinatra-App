@@ -1,25 +1,23 @@
-<h1> Edit a Video Game</h1>
-<% if !!@error %>
-  <div class="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Error!</strong> <%= @error %>
-  </div>
-<% end %>
+<html>
+  <h1> Edit Video Game</h1>
+  <% if !!@error %>
+      <strong>Error!</strong> <%= @error %>
+  <% end %>
 
-<form action="/videogames/<%= @videogame.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="patch">
+  <form action="/videogames/<%= @videogame.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <h2>Original Video Game — Video Game id: <%=@videogame.id%></h2>
-  <h2>Title: <%= @videogame.title %></h2>
-  <h3>Date Purchased: <%= @videogame.date_purchased %></h3>
+    <h2>Title: <%= @videogame.title %></h2>
+    <h3>Date Purchased: <%= @videogame.date_purchased %></h3>
 
-  <h3> Edit Video Game:</h3><br>
+    <h3> Edit Video Game:</h3><br>
 
-  <label>Title: </label>
-  <input type="text" name="videogame[title]" value="<%= @videogame.title %>"><br><br>
+    <label>Title: </label>
+    <input type="text" name="videogame[title]" value="<%= @videogame.title %>"><br><br>
 
-  <label>Date Purchased: </label>
-  <input type="date" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>"><br><br>
+    <label>Date Purchased: </label>
+    <input type="date" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>"><br><br>
 
-  <button class="btn btn-lg btn-info" type="submit">Edit Video Game</button><br>
-</form
+    <button type="submit">Edit Video Game</button><br>
+  </form>
+</html>

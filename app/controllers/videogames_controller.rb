@@ -15,7 +15,6 @@ class VideogamesController < ApplicationController
   post '/videogames' do
     videogame = current_user.videogames.new(params[:videogame])
     if videogame.title.empty? || videogame.date_purchased.empty?
-      @error = "Data invalid. Please fill out both fields."
       erb :"/videogames/new"
     else
       if videogame.save
