@@ -26,6 +26,18 @@
     <title>Video Game Collection</title>
   </head>
   <body>
+<ul>
+  <% if logged_in? %>
+  <li><a href="/">Home</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <li><a href="/videogames">All Video Games</a></li>
+  <li><a href="/users/<%= current_user.id %>">My Video Games</li>
+
+  <% else %> 
+  <li><a href="/signup">Signup</a></li>
+  <li><a href="/login">Login</a></li>
+  <% end %>
+</ul>
     <div class="wrapper">
         <%= yield %>
       <footer class="branding">
@@ -34,11 +46,3 @@
     </div>
   </body>
 </html>
-<ul>
-  <li><a href="/">Home</a></li>
-  <li><a href="/signup">Signup</a></li>
-  <li><a href="/login">Login</a></li>
-  <li><a href="/logout">Logout</a></li>
-  <li><a href="/videogames">All Video Games</a></li>
-  <li><a href="/users/<%= current_user.id %>">My Video Games</li> 
-</ul>
