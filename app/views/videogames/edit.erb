@@ -1,23 +1,14 @@
 <html>
-  <h1> Edit Video Game</h1>
-  <% if !!@error %>
-      <strong>Error!</strong> <%= @error %>
-  <% end %>
-
   <form action="/videogames/<%= @videogame.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
-
-    <h2>Title: <%= @videogame.title %></h2>
-    <h3>Date Purchased: <%= @videogame.date_purchased %></h3>
-
-    <h3> Edit Video Game:</h3><br>
-
-    <label>Title: </label>
+    <h1>Original Video Game</h1>
+    <h4>Title | <%= @videogame.title %></h4>
+    <h4>Date Purchased | <%= @videogame.date_purchased %></h4>
+    <h1> Edit Video Game</h1><br>
+    <label>Title </label>
     <input type="text" name="videogame[title]" value="<%= @videogame.title %>"><br><br>
-
-    <label>Date Purchased: </label>
+    <label>Date Purchased </label>
     <input type="date" name="videogame[date_purchased]" value="<%= @videogame.date_purchased %>"><br><br>
-
     <button type="submit">Edit Video Game</button><br>
   </form>
 </html>

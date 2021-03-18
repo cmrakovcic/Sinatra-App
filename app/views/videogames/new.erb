@@ -1,13 +1,12 @@
 <html>
-  <h2>Create a New Video Game</h2><br>
+  <h2>New Video Game</h2><br>
   <% if @error %>
-      <strong>Error!</strong> <%= @error %>
+    <strong>Error!</strong> <%= @error %>
   <% end %>
-
   <form action="/videogames" method="POST">
-    <label>Title: </label>
+    <label>Title </label>
     <input type="text" name="videogame[title]"required><br><br>
-    <label>Date Purchased: </label>
+    <label>Date Purchased </label>
     <input type="date" name="videogame[date_purchased]"required><br><br>
     <button type="submit">Add Video Game</button><br>
   </form>
