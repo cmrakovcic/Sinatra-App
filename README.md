@@ -1,4 +1,4 @@
-# Sinatra-Video-Game-Collection
+# Game Tracker
     The Sinatra Application allows the user to make a secure account as well as creating, reading, updating, and destroying the video games in their collection.
 
 # Installation
